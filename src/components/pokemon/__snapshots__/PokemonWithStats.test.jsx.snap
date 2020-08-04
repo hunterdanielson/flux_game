@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pokemon component renders Pokemon 1`] = `
+<section>
+  <Pokemon
+    image="http://someimg.png"
+  />
+  <Stats
+    attack={10}
+    defense={10}
+    health={100}
+  />
+</section>
+`;

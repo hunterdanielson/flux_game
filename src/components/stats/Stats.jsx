@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Stats = ({ health, attack, defense }) => {
+const Stats = ({ health, attack, defense }) => (
   <dl>
     <dt>Health</dt>
     <dd>{health}</dd>
@@ -9,8 +9,8 @@ const Stats = ({ health, attack, defense }) => {
     <dd>{attack}</dd>
     <dt>Defense</dt>
     <dd>{defense}</dd>
-  </dl>;
-};
+  </dl>
+);
 
 Stats.propTypes = {
   health: PropTypes.number.isRequired,
