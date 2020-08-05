@@ -7,5 +7,6 @@ exports[`Pokemon component renders Pokemon 1`] = `
   <img
     src="http://placeholder.png"
   />
+  <figcaption />
 </figure>
 `;
