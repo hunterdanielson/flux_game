@@ -1,8 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App/App';
+import GameProvider from './provider/GameProvider';
 
 render(
-  <App />,
+  <GameProvider>
+    <App />
+  </GameProvider>,
   document.getElementById('root')
 );
