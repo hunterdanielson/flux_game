@@ -10,6 +10,7 @@ const GameBoard = () => {
   const dispatch = useDispatch();
   const ally = useAlly();
   const enemy = useEnemy();
+  console.log('enemy:', enemy);
 
   useEffect(() => {
     if(enemy.health > 0) return;
@@ -21,10 +22,18 @@ const GameBoard = () => {
 
   return (
     <section className={styles.GameBoard}>
-      
-      <PokemonWithStats pokemon={ally} />
-      {/* <Moves moves={ally.moves}/> */}
-      <PokemonWithStats pokemon={enemy} />
+      <div>
+        <h1>Player</h1>
+        <PokemonWithStats pokemon={ally} />
+      </div>
+      <div>
+        <h2>Pick your move</h2>
+        <Moves moves={ally.moves}/>
+      </div>
+      <div>
+        <h1>Enemy</h1>
+        <PokemonWithStats pokemon={enemy} />
+      </div>
     </section>
   );
 };

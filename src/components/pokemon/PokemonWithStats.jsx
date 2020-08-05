@@ -5,7 +5,7 @@ import Stats from '../stats/Stats';
 
 const PokemonWithStats = ({ pokemon }) => (
   <section>
-    <Pokemon image={pokemon.image} />
+    <Pokemon image={pokemon.image} name={pokemon.name} />
     <Stats health={pokemon.health} attack={pokemon.attack} defense={pokemon.defense} />
   </section>
 );
@@ -13,6 +13,7 @@ const PokemonWithStats = ({ pokemon }) => (
 PokemonWithStats.propTypes = {
   pokemon: PropTypes.shape({
     image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     health: PropTypes.number.isRequired,
     attack: PropTypes.number.isRequired,
     defense: PropTypes.number.isRequired,

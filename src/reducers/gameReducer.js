@@ -7,31 +7,12 @@ import {
 
 export const initialState = {
   ally: {
+    name: 'bulbasaur',
     image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
     health: 45,
     attack: 49,
     defense: 49,
-    moves: [{
-      name: 'tackle',
-      power: 40,
-      accuracy: 100
-    },
-    {
-      name: 'water-gun',
-      power: 45,
-      accuracy: 80
-    },
-    {
-      name: 'bubble',
-      power: 50,
-      accuracy: 75
-    },
-    {
-      name: 'hydro-pump',
-      power: 65,
-      accuracy: 75
-    }
-    ],
+    moves: ['tackle', 'vine-whip', 'razor-leaf', 'headbutt'],
     attackPicked: {
       name: 'tackle',
       power: 40,
@@ -39,31 +20,12 @@ export const initialState = {
     }
   },
   enemy: {
+    name: 'squirtle',
     image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png',
-    health: 44,
+    health: 4,
     attack: 48,
     defense: 65,
-    moves: [{
-      name: 'scratch',
-      power: 40,
-      accuracy: 100
-    },
-    {
-      name: 'ember',
-      power: 45,
-      accuracy: 80
-    },
-    {
-      name: 'headbutt',
-      power: 50,
-      accuracy: 75
-    },
-    {
-      name: 'flamethrower',
-      power: 65,
-      accuracy: 75
-    }
-    ],
+    moves: ['scratch', 'water-gun', 'bubble', 'hydro-pump'],
     attackPicked: {
       name: 'scratch',
       power: 40,
@@ -73,8 +35,9 @@ export const initialState = {
 };
 
 const calculateDamage = (attack, attackPicked, defense) => {
-  const randomNumber = Math.floor(Math.random() * 100);
-  if(attackPicked.accuracy > randomNumber) return attack * attackPicked.power / (defense * 3);
+  const randomNumberAccuracy = Math.floor(Math.random() * 100);
+  const randomNumberDefense = Math.random() * 1 + 2;
+  if(attackPicked.accuracy > randomNumberAccuracy) return attack * attackPicked.power / (defense * randomNumberDefense);
   return 0;
 };
 

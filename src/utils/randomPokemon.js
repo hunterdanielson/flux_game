@@ -1,10 +1,11 @@
 const getRandomNumber = max => Math.floor(Math.random() * max);
 
 export const randomPokemon = () => {
-  const randomPokemonNumber = getRandomNumber(964);
+  const randomPokemonNumber = getRandomNumber(800);
   return fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemonNumber}`)
     .then(res => res.json())
-    .then((pokemon) => ({
+    .then(pokemon => ({
+      name: pokemon.name,
       image: pokemon.sprites.front_default,
       health: pokemon.stats[0].base_stat,
       attack: pokemon.stats[1].base_stat,
@@ -16,4 +17,5 @@ export const randomPokemon = () => {
         pokemon.moves[3].move.name,
       ]
     }));
+    
 };

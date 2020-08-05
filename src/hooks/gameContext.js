@@ -20,6 +20,7 @@ export const useAlly = () => {
 
 export const useEnemy = () => {
   const { enemy } = useState();
+  console.log('why is this pending:', enemy);
   return enemy;
 };
 
