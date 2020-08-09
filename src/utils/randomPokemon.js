@@ -17,5 +17,14 @@ export const randomPokemon = () => {
         pokemon.moves[3].move.name,
       ]
     }));
-    
+};
+
+export const moveDetails = (move) => {
+  return fetch(`https://pokeapi.co/api/v2/move/${move}`)
+    .then(res => res.json())
+    .then(move => ({
+      name: move.name,
+      accuracy: move.accuracy,
+      power: move.power
+    }));
 };

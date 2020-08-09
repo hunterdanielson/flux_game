@@ -20,8 +20,6 @@ export const useAlly = () => {
 
 export const useEnemy = () => {
   const { enemy } = useState();
-  
-  console.log('why is this pending:', enemy);
   return { ...enemy };
 };
 
@@ -30,7 +28,8 @@ export const useTurn = () => {
 
   return action => {
     dispatch(action);
-
-    dispatch(attackAlly());
+    // eventually make this dynamic and pick a random move the enemy knows
+    const move = { accuracy: 80, power: 45, name: 'pound' };
+    dispatch(attackAlly(move));
   };
 };

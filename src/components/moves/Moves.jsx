@@ -3,7 +3,7 @@ import styles from './Moves.css';
 import { useTurn, useDispatch } from '../../hooks/gameContext';
 import { attackEnemy, setEnemy } from '../../actions/gameActions';
 import PropTypes from 'prop-types';
-import { randomPokemon } from '../../utils/randomPokemon';
+import { randomPokemon, moveDetails } from '../../utils/randomPokemon';
 
 const Moves = ({ moves }) => {
   const turn = useTurn();
@@ -12,7 +12,7 @@ const Moves = ({ moves }) => {
   return (
     <section className={styles.Moves} >
       {
-        moves.map(move => <button key={move} onClick={() => turn(attackEnemy())}>{move}</button>)
+        moves.map(move => <button key={move} onClick={() => moveDetails(move).then(move => turn(attackEnemy(move)))}>{move}</button>)
       }
       <button onClick={() => {
         randomPokemon().then(pokemon => dispatch(setEnemy(pokemon))); 

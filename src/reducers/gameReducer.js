@@ -44,9 +44,11 @@ const calculateDamage = (attack, attackPicked, defense) => {
 export default function reducer(state, action) {
   switch(action.type) {
     case ATTACK_ENEMY:
-      return { ...state, enemy: { ...state.enemy, health: state.enemy.health - calculateDamage(state.ally.attack, state.ally.attackPicked, state.enemy.defense) } };
+      console.log(action.payload);
+      return { ...state, enemy: { ...state.enemy, health: state.enemy.health - calculateDamage(state.ally.attack, action.payload, state.enemy.defense) } };
     case ATTACK_ALLY:
-      return { ...state, ally: { ...state.ally, health: state.ally.health - calculateDamage(state.enemy.attack, state.enemy.attackPicked, state.ally.defense) } };
+      console.log(action.payload);
+      return { ...state, ally: { ...state.ally, health: state.ally.health - calculateDamage(state.enemy.attack, action.payload, state.ally.defense) } };
     case SET_ENEMY:
       return { ...state, enemy: action.payload };
     case SET_ALLY:
