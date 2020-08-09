@@ -5,17 +5,18 @@ import PokemonWithStats from '../pokemon/PokemonWithStats';
 import Results from '../results/Results';
 import Moves from '../moves/Moves';
 import styles from './GameBoard.css';
+import { randomPokemon } from '../../utils/randomPokemon';
 
 const GameBoard = () => {
   const dispatch = useDispatch();
   const ally = useAlly();
   const enemy = useEnemy();
-  console.log('enemy:', enemy);
 
   useEffect(() => {
     if(enemy.health > 0) return;
-    
-    dispatch(setEnemy());
+    randomPokemon().then(
+      pokemon => dispatch(setEnemy(pokemon))
+    );
   }, [enemy.health]);
 
   if(ally.health <= 0) return <Results />;
