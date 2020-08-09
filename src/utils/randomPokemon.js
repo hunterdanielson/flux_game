@@ -1,7 +1,7 @@
 const getRandomNumber = max => Math.floor(Math.random() * max);
 
 export const randomPokemon = () => {
-  const randomPokemonNumber = getRandomNumber(800);
+  const randomPokemonNumber = getRandomNumber(800) + 1;
   return fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemonNumber}`)
     .then(res => res.json())
     .then(pokemon => ({
